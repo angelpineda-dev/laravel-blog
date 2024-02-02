@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .nav-link{
+        @apply text-blue-500 text-xl underline;
+    }
+
+    .link{
+        @apply underline text-blue-400 text-base;
+    }
+
+    .title-1{
+        @apply text-4xl font-bold;
+    }
+}
