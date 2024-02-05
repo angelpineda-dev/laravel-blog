@@ -45,6 +45,12 @@ class CursoController extends Controller
     }
 
     public function update(Request $request, Curso $curso){
+        $request->validate([
+            'name' => 'required',
+            'category' => 'required',
+            'description' => 'required',
+        ]);
+        
         $curso->name = $request->name;
         $curso->category = $request->category;
         $curso->description = $request->description;

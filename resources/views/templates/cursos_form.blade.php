@@ -4,10 +4,9 @@
 
 <div class="p-1 m-2 ">
     <label for="name" class="text-xl block cursor-pointer">Nombre:</label>
-    <input id="name" type="text" name="name" value="{{ isset($curso) ? $curso->name : old('name') }}" class="border border-neutral-400 rounded" />
+    <input id="name" type="text" name="name" value="{{ isset($curso) ? old('name', $curso->name) : old('name') }}" class="border border-neutral-400 rounded" />
     @error('name')
                 {{ $message }}
-
     @enderror
 </div>
 
@@ -20,8 +19,8 @@
             <option 
                 value="{{$value}}" 
                 @selected( 
-                    isset($curso) 
-                    ? $curso->category == $value 
+                    isset($curso)
+                    ? old('category', $curso->category) == $value 
                     : @old('category') == $value)> 
                 {{$value}} 
             </option>
@@ -34,7 +33,7 @@
 
 <div class="p-1 m-2 ">
     <label for="description" class="text-xl block cursor-pointer">Descripción</label>
-    <textarea id="description" name="description" cols="50" rows="5" class="border border-neutral-400 rounded">{{isset($curso) ? $curso->description : old('description')}}</textarea>
+    <textarea id="description" name="description" cols="50" rows="5" class="border border-neutral-400 rounded">{{isset($curso) ? old('description', $curso->description) : old('description')}}</textarea>
     @error('description')
                 {{ $message }}
 
