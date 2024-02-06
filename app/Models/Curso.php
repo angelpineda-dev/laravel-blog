@@ -10,6 +10,10 @@ class Curso extends Model
 {
     use HasFactory;
 
+    // protected $fillable = ['name', 'description', 'category'];
+
+    protected $guarded = [];
+
     protected function name(): Attribute{
         return new Attribute(
             set: fn($value) => strtolower($value),
