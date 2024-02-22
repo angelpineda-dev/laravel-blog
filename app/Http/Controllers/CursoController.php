@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class CursoController extends Controller
 {
     public function index(){
-        $cursos['cursos'] = Curso::paginate(10);
+        $cursos['cursos'] = Curso::orderBy('id', 'desc')->paginate(15);
         return view('cursos.index', $cursos);
     }
 

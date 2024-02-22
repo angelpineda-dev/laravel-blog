@@ -11,6 +11,14 @@
 </div>
 
 <div class="p-1 m-2 ">
+    <label for="slug" class="text-xl block cursor-pointer">Slug:</label>
+    <input id="slug" type="text" name="slug" value="{{ isset($curso) ? old('slug', $curso->name) : old('slug') }}" class="border border-neutral-400 rounded" />
+    @error('slug')
+                {{ $message }}
+    @enderror
+</div>
+
+<div class="p-1 m-2 ">
     <label for="category" class="text-xl block cursor-pointer">Categoria</label>
 
     <select name="category" id="category" class="border border-neutral-400 rounded">

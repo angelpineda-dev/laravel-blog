@@ -21,8 +21,15 @@ class StoreCurso extends FormRequest
      */
     public function rules(): array
     {
+        $id = '';
+
+        if(isset($this->curso)){
+            $id = $this->curso->id;
+        }
+
         return [
             'name' => 'required|min:3',
+            'slug' => 'required|unique:cursos,slug,' . $id,
             'category' => 'required',
             'description' => 'required',
         ];

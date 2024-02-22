@@ -21,6 +21,10 @@ class Curso extends Model
         );
     }
 
+    public function getRouteKeyName(){
+        return 'slug';
+    }
+
     // forma de definir un accesor en versiones anteriores
     // public function getNameAttribute($value): Attribute {
     //     return ucwords($value);
