@@ -11,7 +11,7 @@
             </li>
             <li>
                 <a href="{{ route('nosotros') }}"
-                    class="{{ request()->routeIs('nosotros') ? 'text-red-300 font-semibold' : '' }}">Inicio</a>
+                    class="{{ request()->routeIs('nosotros') ? 'text-red-300 font-semibold' : '' }}">Nosotros</a>
             </li>
         </ul>
     </header>
