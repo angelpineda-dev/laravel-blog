@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Profile;
+use App\Models\Post;
+use App\Models\Video;
 
 class User extends Authenticatable
 {
@@ -44,8 +46,20 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    function profile()
+    public function profile()
     {
         return $this->hasOne(Profile::class);
+    }
+
+    // Relacion uno a muchos
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    // Relacion uno a muchos
+    public function videos()
+    {
+        return $this->hasMany(Video::class);
     }
 }
