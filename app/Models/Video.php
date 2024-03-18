@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Video extends Model
 {
+
+    protected $guarded  = [];
+    
     use HasFactory;
 
     public function user()
@@ -19,5 +22,10 @@ class Video extends Model
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable');
+    }
+
+    // Relacion muchos a muchos polimorfica
+    public function tags(){
+        return $this->morphToMany(Tag::class,'taggable');
     }
 }
